@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function cntUp(p) {
+	var xs = localStorage.getItem('currentSet');
+
+	  vp = xs.trim() +p.trim();
+	 
+	  var v1 = localStorage.getItem(vp);
+	  var v = parseInt(v1);
+	v += 1;
+	console.log(vp, v);
+	v2 = v.toString();
+	localStorage.setItem(vp, v2);	 ;
+	 
+ report();
+   
+   
+}
+function cntDown(p) {
+	var xs = localStorage.getItem('currentSet');
+
+	  vp = xs.trim() +p.trim();
+	 
+	  var v1 = localStorage.getItem(vp);
+	  var v = parseInt(v1);
+	v = v- 1;
+	console.log(vp, v);
+	v2 = v.toString();
+	localStorage.setItem(vp, v2);	 ;
+	  
+ report();
+   
+   
+}
+
+function p1Reset() {
+var v = localStorage.getItem('currentSet');
+	
+	vp1Wins = v.trim() + 'p1Wins';
+	 
+	vp1Skunks = v.trim() + 'p1Skunks';
+	vp1DblSkunks = v.trim() + 'p1DblSkunks';
+	vp112 = v.trim() + 'p112';
+	vp116 = v.trim() + 'p116';
+	vp120 = v.trim() + 'p120';
+	vp124 = v.trim() + 'p124';
+	 
+	   localStorage.clear
+	   localStorage.setItem(vp1Wins,'0');
+	   localStorage.setItem(vp1Skunks,'0');
+	   localStorage.setItem(vp1DblSkunks,'0');
+	   localStorage.setItem(vp112,'0');
+	   localStorage.setItem(vp116,'0');
+	   localStorage.setItem(vp120,'0');
+	   localStorage.setItem(vp124,'0');
+	   
+	   vp2Wins = v.trim() + 'p2Wins';
+		vp2Skunks = v.trim() + 'p2Skunks';
+		vp2DblSkunks = v.trim() + 'p2DblSkunks';
+		vp212 = v.trim() + 'p212';
+		vp216 = v.trim() + 'p216';
+	 
+		vp220 = v.trim() + 'p220';
+		vp224 = v.trim() + 'p224';
+		localStorage.setItem(vp2Wins,'0');
+		   localStorage.setItem(vp2Skunks,'0');
+		   localStorage.setItem(vp2DblSkunks,'0');
+		   localStorage.setItem(vp212,'0');
+		   localStorage.setItem(vp216,'0');
+		   localStorage.setItem(vp220,'0');
+		   localStorage.setItem(vp224,'0')
+	   report(); 
+	    }  
+	 
+function report(){
+	var v = localStorage.getItem('currentSet');
+	
+	vp1Wins = v.trim() + 'p1Wins';
+	 
+	vp1Skunks = v.trim() + 'p1Skunks';
+	vp1DblSkunks = v + 'p1DblSkunks';
+	vp112 = v.trim() + 'p112';
+	vp116 = v.trim() + 'p116';
+	vp120 = v.trim() + 'p120';
+	vp124 = v.trim() + 'p124';
+	 document.getElementById("p1a").innerHTML =   localStorage.getItem(vp1Wins);
+	 document.getElementById("p1b").innerHTML =   localStorage.getItem(vp1Skunks);
+	 document.getElementById("p1c").innerHTML =   localStorage.getItem(vp1DblSkunks);
+	 document.getElementById("p1d").innerHTML =   localStorage.getItem(vp112);
+	 document.getElementById("p1e").innerHTML =   localStorage.getItem(vp116);
+	 document.getElementById("p1f").innerHTML =   localStorage.getItem(vp120);
+	 document.getElementById("p1g").innerHTML =   localStorage.getItem(vp124);
+	 
+	 vp2Wins = v.trim() + 'p2Wins';
+		vp2Skunks = v.trim() + 'p2Skunks';
+		vp2DblSkunks = v.trim() + 'p2DblSkunks';
+		vp212 = v.trim() + 'p212';
+		vp216 = v.trim() + 'p216';
+		 
+		vp220 = v.trim() + 'p220';
+		vp224 = v.trim() + 'p224';
+		 document.getElementById("p2a").innerHTML =   localStorage.getItem(vp2Wins);
+		 document.getElementById("p2b").innerHTML =   localStorage.getItem(vp2Skunks);
+		 document.getElementById("p2c").innerHTML =   localStorage.getItem(vp2DblSkunks);
+		 document.getElementById("p2d").innerHTML =   localStorage.getItem(vp212);
+		 document.getElementById("p2e").innerHTML =   localStorage.getItem(vp216);
+		 document.getElementById("p2f").innerHTML =   localStorage.getItem(vp220);
+		 document.getElementById("p2g").innerHTML =   localStorage.getItem(vp224);
+	 
+	  
+	 
+	 document.getElementById("set").value = v;
+	 gameCount = parseInt(localStorage.getItem(vp1Wins))  +  parseInt(localStorage.getItem(vp1Skunks)) + parseInt(localStorage.getItem(vp1DblSkunks)) + parseInt(localStorage.getItem(vp2Wins))  +  parseInt(localStorage.getItem(vp2Skunks)) + parseInt(localStorage.getItem(vp2DblSkunks));
+	 console.log("4", gameCount,localStorage.getItem(vp1Wins),localStorage.getItem(vp2Wins) ,localStorage.getItem(vp1Skunks),localStorage.getItem(vp2Skunks),
+			 );
+	 document.getElementById("games").innerHTML =   'Game Count for ' + v + ' = '+   gameCount ;
+	 localStorage.getItem(vp1DblSkunks),localStorage.getItem(vp2DblSkunks)
+}
+
+function newSet() {
+	  var x = document.getElementById("set");
+	  var v = x.value;
+	  var set =   v;
+	  
+	  //alert(localStorage.getItem(v));
+	  if (v.trim() !== ''){
+		  //alert('Found: ' + localStorage.set);
+	  } else {
+	  localStorage.setItem(set,v);
+	  localStorage.currentSet = v;
+	  alert('created new Set');
+	  p1Reset();
+	  }
+	  localStorage.currentSet = v;
+	  report();
+	}
+
+
+</script>
+
+<style type="text/css">
+.games{
+	font-size: 30px;
+	border-style: solid;
+}
+#wrap {
+   width:420px;
+   margin:0 auto;
+}
+#left_col {
+   float:left;
+   width:200px;
+	border-style: solid;
+}
+#right_col {
+   float:right;
+   width:200px;
+border-style: solid; 
+}
+
+p.solid {border-style: solid;}
+</style>
+</head>
+<body onload= 'report()'>
+
+
+
+<div id="wrap">
+    <div id="left_col">
+    <h3>Player 1</h3>
+    <table border = "1">
+        <tr><th>Wins</th><td><button onclick="cntUp('p1Wins')" type="button">+</button></td><td><button onclick="cntDown('p1Wins')" type="button">-</button></td><td><div id = 'p1a'></div></td></tr>
+        <tr><th>Skunks</th><td><button onclick="cntUp('p1Skunks')" type="button">+</button></td><td><button onclick="cntDown('p1Skunks')" type="button">-</button><td><div id = 'p1b'></div></td></tr>
+         <tr><th>Double Skunks</th><td><button onclick="cntUp('p1DblSkunks')" type="button">+</button></td><td><button onclick="cntDown('p1DblSkunks')" type="button">-</button><td><div id = 'p1c'></div></td></tr>
+         <tr><th>Dozens</th><td><button onclick="cntUp('p112')" type="button">+</button></td><td><button onclick="cntDown('p112')" type="button">-</button><td><div id = 'p1d'></div></td></tr>
+          <tr><th>16s</th><td><button onclick="cntUp('p116')" type="button">+</button></td><td><button onclick="cntDown('p116')" type="button">-</button><td><div id = 'p1e'></div></td></tr>
+           <tr><th>20s</th><td><button onclick="cntUp('p120')" type="button">+</button></td><td><button onclick="cntDown('p120')" type="button">-</button><td><div id = 'p1f'></div></td></tr>
+             <tr><th>24s +</th><td><button onclick="cntUp('p124')" type="button">+</button></td><td><button onclick="cntDown('p124')" type="button">-</button><td><div id = 'p1g'></div></td></tr>
+              
+             </table>
+ 
+
+    </div>
+    <div id="right_col">
+    <h3>Player 2</h3>
+    <table border="1">
+        <tr><th>Wins</th><td><button onclick="cntUp('p2Wins')" type="button">+</button></td><td><button onclick="cntDown('p2Wins')" type="button">-</button></td><td><div id = 'p2a'></div></td></tr>
+        <tr><th>Skunks</th><td><button onclick="cntUp('p2Skunks')" type="button">+</button></td><td><button onclick="cntDown('p2Skunks')" type="button">-</button><td><div id = 'p2b'></div></td></tr>
+         <tr><th>Double Skunks</th><td><button onclick="cntUp('p2DblSkunks')" type="button">+</button></td><td><button onclick="cntDown('p2DblSkunks')" type="button">-</button><td><div id = 'p2c'></div></td></tr>
+         <tr><th>Dozens</th><td><button onclick="cntUp('p212')" type="button">+</button></td><td><button onclick="cntDown('p212')" type="button">-</button><td><div id = 'p2d'></div></td></tr>
+          <tr><th>16s</th><td><button onclick="cntUp('p216')" type="button">+</button></td><td><button onclick="cntDown('p216')" type="button">-</button><td><div id = 'p2e'></div></td></tr>
+           <tr><th>20s</th><td><button onclick="cntUp('p220')" type="button">+</button></td><td><button onclick="cntDown('p220')" type="button">-</button><td><div id = 'p2f'></div></td></tr>
+             <tr><th>24s +</th><td><button onclick="cntUp('p224')" type="button">+</button></td><td><button onclick="cntDown('p224')" type="button">-</button><td><div id = 'p2g'></div></td></tr>
+              
+             </table>
+ 
+    </div>
+    <div class='games' id='games'></div>
+    <div> 
+    <p>Set<input type="text" id = "set" onblur = "newSet()"></p>
+    <p><button onclick="p1Reset()" type="button">Reset</button></p>
+     
+    </div>
+    </div>
+    
+ 
+
+</body>
+</html>
